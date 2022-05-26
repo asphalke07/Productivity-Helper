@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- head -->
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/calenderstyles.css">
+<!-- head -->
 
-    <title>Calendar and Clock</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/calenderstyles.css">
+
+  <title>Calendar and Clock</title>
+</head>
 
 <!-- Body  -->
-  <body translate="no">
-    <h4>TODAY</h4>
-    <div class="calendar">
-      <p id="month"></p>
-      <p id="day"></p>
-      <p id="num"></p>
-      <p id="year"></p>
-    </div>
-    <div class="time">
-      <h6>TIME NOW</h6>
-      <p id="h"></p>
-    </div>
-    <footer>
-      <p>Copyright@2022</p>
-    </footer>
-  
-<!-- Script -->
-    <script id="rendered-js">
-      const lang = navigator.language;
-      function setDate() {
-        let date = new Date();
-        // calendar
-        let month = date.getMonth();
-        let num = date.getDate();
-        let day = date.toLocaleString(lang, { weekday: "long" });
-        let monthName = date.toLocaleString(lang, { month: "long" });
-        let year = date.getFullYear();
-        // clock
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        let second = date.getSeconds();
-        let period = "AM";
-        if (hour >= 12) {
-          period = "PM";
-        }
-        if (hour > 12) {
-          hour = hour - 12;
-        }
-        if (minute < 10) {
-          minute = "0" + minute;
-        }
-        if (second < 10) {
-          second = "0" + second;
-        }
+
+<body translate="no">
+  <h4>TODAY</h4>
+  <div class="calendar">
+    <p id="month"></p>
+    <p id="day"></p>
+    <p id="num"></p>
+    <p id="year"></p>
+  </div>
+  <div class="time">
+    <h6>TIME NOW</h6>
+    <p id="h"></p>
+  </div>
+  <footer>
+    <p>Copyright@2022</p>
+  </footer>
+
+  <!-- Script -->
+  <script id="rendered-js">
+    const lang = navigator.language;
+    function setDate() {
+      let date = new Date();
+      // calendar
+      let month = date.getMonth(); // 0-11
+      let num = date.getDate(); // 1- 31
+      let day = date.toLocaleString(lang, { weekday: "long" });
+      let monthName = date.toLocaleString(lang, { month: "long" });
+      let year = date.getFullYear();
+      // clock
+      let hour = date.getHours(); //0-23
+      let minute = date.getMinutes(); //0-59
+      let second = date.getSeconds(); //0-59
+      let period = "AM";
+      if (hour >= 12) {
+        period = "PM";
       }
+      if (hour > 12) {
+        hour = hour - 12;
+      }
+      if (minute < 10) {
+        minute = "0" + minute;
+      }
+      if (second < 10) {
+        second = "0" + second;
+      }
+    }
 
     ///////////////////////////////////
     function clickIE4() {
@@ -64,8 +66,9 @@
       setInterval(setDate, 1000);
       setDate();
     }
-      
-    </script>
 
-     </body>
+  </script>
+
+</body>
+
 </html>
