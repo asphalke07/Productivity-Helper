@@ -53,17 +53,17 @@
         if (second < 10) {
           second = "0" + second;
         }
+      }
 
-        document.querySelector("#month").innerHTML = monthName;
-        document.querySelector("#day").innerHTML = day;
-        document.querySelector("#num").innerHTML = num;
-        document.querySelector("#year").innerHTML = year;
-        document.querySelector(
-          "#h"
-        ).innerHTML = `${hour} : ${minute} : ${second} ${period}`;
+    ///////////////////////////////////
+    function clickIE4() {
+      if (event.button == 2) {
+        alert(message);
+        return false;
       }
       setInterval(setDate, 1000);
       setDate();
+    }
       
     </script>
 
