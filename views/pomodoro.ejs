@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="css/pomodorostyles.css" />
+<head>
+  <title>Pomodoro</title>
+  <link rel="stylesheet" href="css/pomodorostyles.css" />
+</head>
+
+
 
 <div class="card">
     <h1 style="color:#F24C4C ;">Pomodoro 25 Mins</h1>
@@ -24,7 +29,7 @@
       timeInSecs--;
     } else {
       clearInterval(ticker);
-      startTimer(5 * 60); // 4 minutes in seconds
+      startTimer(5 * 60); 
     }
 
     var mins = Math.floor(secs / 60);
@@ -35,7 +40,7 @@
     document.getElementById("countdown").innerHTML = pretty;
   }
 
-  startTimer(25 * 60); // 4 minutes in seconds
+  startTimer(25 * 60);
 
-  //Credits to Gulzaib from Pakistan
+
 </script>
