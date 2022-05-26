@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- head -->
   <head>
     <meta charset="UTF-8" />
+
+   
+
     <link rel="stylesheet" href="/css/calenderstyles.css">
 
     <title>Calendar and Clock</title>
+
+    
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
   </head>
 
-<!-- Body  -->
   <body translate="no">
     <h4>TODAY</h4>
     <div class="calendar">
@@ -25,21 +37,21 @@
       <p>Copyright@2022</p>
     </footer>
   
-<!-- Script -->
+
     <script id="rendered-js">
       const lang = navigator.language;
       function setDate() {
         let date = new Date();
         // calendar
-        let month = date.getMonth();
-        let num = date.getDate();
+        let month = date.getMonth(); //0-11
+        let num = date.getDate(); //1-31
         let day = date.toLocaleString(lang, { weekday: "long" });
         let monthName = date.toLocaleString(lang, { month: "long" });
         let year = date.getFullYear();
         // clock
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        let second = date.getSeconds();
+        let hour = date.getHours();//0-23
+        let minute = date.getMinutes(); //0-59
+        let second = date.getSeconds(); //0-59
         let period = "AM";
         if (hour >= 12) {
           period = "PM";
@@ -53,19 +65,31 @@
         if (second < 10) {
           second = "0" + second;
         }
-      }
 
-    ///////////////////////////////////
-    function clickIE4() {
-      if (event.button == 2) {
-        alert(message);
-        return false;
+        document.querySelector("#month").innerHTML = monthName;
+        document.querySelector("#day").innerHTML = day;
+        document.querySelector("#num").innerHTML = num;
+        document.querySelector("#year").innerHTML = year;
+        document.querySelector(
+          "#h"
+        ).innerHTML = `${hour} : ${minute} : ${second} ${period}`;
       }
       setInterval(setDate, 1000);
       setDate();
-    }
       
     </script>
 
-     </body>
+    <script language="JavaScript">
+
+
+      
+    </script>
+    <script>
+      document.onkeydown = function (e) {
+        if (e.ctrlKey && e.keyCode === 85) {
+          return false;
+        }
+      };
+    </script>
+  </body>
 </html>
